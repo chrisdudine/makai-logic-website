@@ -171,19 +171,26 @@
         border-bottom: 1px solid rgba(255,255,255,.06);
       }
 
-      .hero-grid {
-        min-height: 620px;
-        display: grid;
-        grid-template-columns: 1.03fr .97fr;
-        align-items: center;
+
+
+      .hero-brand {
+        margin: 0;
+        line-height: 0;
       }
 
-      .hero-copy {
-        min-width: 0;
-        padding: 0 0 58px;
-        align-self: start;
-        position: relative;
+      .hero-brand img {
+        height: auto;
+        object-fit: contain;
+      }
+
+      .hero-actions {
+        position: absolute;
         z-index: 2;
+        left: max(28px, calc((100% - var(--max)) / 2));
+        top: 62%;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
       }
 
       .eyebrow {
@@ -208,37 +215,10 @@
 
 
 
-      .hero-brand {
-        width: 110%;
-        margin: 0;
-        line-height: 0;
-      }
 
-      .hero-actions {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 32px;
-      }
 
-      .hero-brand img {
-        height: auto;
-        object-fit: contain;
-      }
 
-      .hero-media {
-        align-self: stretch;
-        position: relative;
-        min-height: 620px;
-        background: linear-gradient(90deg,#020b13 0%,rgba(2,11,19,.17) 22%,rgba(2,11,19,0) 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=88') center/cover;
-      }
 
-      .hero-media:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(90deg,rgba(2,11,19,.86),transparent 24%),linear-gradient(180deg,rgba(2,11,19,.08),rgba(2,11,19,.18));
-      }
 
       .metric-icon,
       .arrow,
@@ -458,17 +438,8 @@
           display: none;
         }
 
-        .hero-grid {
-          grid-template-columns: 1fr;
-        }
 
-        .hero-brand {
-          width: 100%;
-        }
 
-        .hero-media {
-          min-height: 380px;
-        }
 
         .metrics,
         .services,
@@ -486,6 +457,22 @@
       }
 
       @media(max-width:650px) {
+        .hero-actions {
+          top: 60%;
+          right: 14px;
+          bottom: auto;
+          left: 14px;
+          gap: 10px;
+        }
+
+        .hero-actions .btn {
+          min-height: 36px;
+          padding: 0 10px;
+          gap: 6px;
+          font-size: .65rem;
+        }
+
+
         .wrap {
           width: min(calc(100% - 28px),var(--max));
         }
@@ -502,17 +489,8 @@
           min-width: 0;
         }
 
-        .hero-grid {
-          min-height: auto;
-        }
 
-        .hero-copy {
-          padding: 0 0 42px;
-        }
 
-        .hero-media {
-          min-height: 290px;
-        }
 
         .metrics {
           grid-template-columns: 1fr;
@@ -571,17 +549,12 @@
     </header>
     <main id="top">
       <div class="hero">
-        <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <h1 class="hero-brand">
-              <img src="assets/makai-logic-logo.webp" width="1774" height="887" fetchpriority="high" alt="Makai Logic — AI solutions and integration. We help businesses automate operations, engage new markets, achieve optimal efficiency and profitability. Empowering your staff, not replacing them.">
-            </h1>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Book a Consultation <span>→</span></a>
-              <a class="btn" href="#services">See Our Services <span>▶</span></a>
-            </div>
-          </div>
-          <div class="hero-media" role="img" aria-label="Business intelligence dashboard"></div>
+        <h1 class="hero-brand">
+          <img src="assets/makai-logic-logo.webp" width="1774" height="887" fetchpriority="high" alt="Makai Logic — AI solutions and integration. We help businesses automate operations, engage new markets, achieve optimal efficiency and profitability. Empowering your staff, not replacing them.">
+        </h1>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Book a Consultation <span>→</span></a>
+          <a class="btn" href="#services">See Our Services <span>▶</span></a>
         </div>
       </div>
       <div class="wrap metrics" aria-label="Key benefits">
