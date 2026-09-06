@@ -186,9 +186,11 @@
       .hero-actions {
         position: absolute;
         z-index: 2;
-        left: max(28px, calc((100% - var(--max)) / 2));
-        top: 62%;
+        left: 28px;
+        right: 28px;
+        top: 65%;
         display: flex;
+        justify-content: center;
         gap: 20px;
         flex-wrap: wrap;
       }
@@ -458,7 +460,7 @@
 
       @media(max-width:650px) {
         .hero-actions {
-          top: 60%;
+          top: 63%;
           right: 14px;
           bottom: auto;
           left: 14px;
