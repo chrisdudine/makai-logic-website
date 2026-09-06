@@ -1,147 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Makai Logic helps businesses automate operations, engage customers, and unlock new levels of efficiency and profitability with intelligent AI solutions." />
-  <title>Makai Logic | AI Consulting</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#020b13;
-      --panel:#071522;
-      --panel2:#0a1926;
-      --blue:#4a8cff;
-      --blue2:#2f6fd8;
-      --text:#f7f9fc;
-      --muted:#a8b3bf;
-      --line:rgba(136,184,255,.20);
-      --soft:rgba(255,255,255,.055);
-      --max:1420px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;color:var(--text);font-family:Inter,Arial,sans-serif;
-      background:radial-gradient(circle at 78% 4%,rgba(30,90,160,.16),transparent 23%),linear-gradient(180deg,#020b13 0%,#03101a 46%,#020a11 100%);
-    }
-    a{text-decoration:none;color:inherit}
-    img{display:block;width:100%;height:100%;object-fit:cover}
-    .wrap{width:min(calc(100% - 56px),var(--max));margin:auto}
-    header{position:sticky;top:0;z-index:80;background:rgba(2,10,17,.90);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.07)}
-    .nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:34px}
-    .logo{display:flex;align-items:center;gap:14px;min-width:250px}
-    .logo-mark{width:46px;height:46px;position:relative}
-    .logo-mark:before,.logo-mark:after{content:"";position:absolute;left:8px;right:8px;height:4px;background:linear-gradient(90deg,#4e8dfa,#7bb4ff);transform-origin:left center}
-    .logo-mark:before{top:9px;transform:rotate(58deg)}
-    .logo-mark:after{bottom:8px;transform:rotate(-58deg)}
-    .logo-mid{position:absolute;width:29px;height:4px;background:#5d97f9;left:10px;top:27px}
-    .logo-text strong{display:block;font-family:Montserrat,sans-serif;font-weight:500;letter-spacing:.24em;font-size:1.08rem}
-    .logo-text small{display:block;letter-spacing:.31em;font-size:.56rem;margin-top:4px;color:#d9e2ec}
-    .navlinks{display:flex;gap:34px;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
-    .navlinks a{color:#edf3fa}.navlinks a:hover{color:#77a8ff}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid rgba(120,169,255,.45);min-height:50px;padding:0 24px;border-radius:8px;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;transition:.2s ease}
-    .btn:hover{transform:translateY(-1px);border-color:#76a6ff}
-    .btn-primary{background:linear-gradient(135deg,#3479df,#4b90f5);border-color:#4b90f5;color:white;box-shadow:0 12px 34px rgba(52,121,223,.18)}
-    .hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.06)}
-    .hero-grid{min-height:620px;display:grid;grid-template-columns:1.03fr .97fr;align-items:center}
-    .hero-copy{padding:72px 0 58px;position:relative;z-index:2}
-    .eyebrow{display:flex;align-items:center;gap:14px;color:#4c9cff;font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:25px}
-    .eyebrow:before{content:"";width:34px;height:2px;background:#4a8cff}
-    h1{font-family:Montserrat,sans-serif;margin:0;font-weight:500;line-height:.92;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(3.7rem,7.7vw,7.4rem)}
-    h1 span{display:block;color:#4a82df;font-size:.49em;letter-spacing:.095em;margin-top:20px}
-    .hero-copy p{max-width:610px;color:#eef3f9;font-size:1.13rem;line-height:1.8;margin:28px 0 32px}
-    .hero-actions{display:flex;gap:20px;flex-wrap:wrap}
-    .hero-media{align-self:stretch;position:relative;min-height:620px;background:linear-gradient(90deg,#020b13 0%,rgba(2,11,19,.17) 22%,rgba(2,11,19,0) 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=88') center/cover}
-    .hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,11,19,.86),transparent 24%),linear-gradient(180deg,rgba(2,11,19,.08),rgba(2,11,19,.18))}
-    .metrics{position:relative;z-index:4;margin-top:-31px;border:1px solid rgba(96,151,231,.20);background:rgba(2,13,22,.91);border-radius:12px;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 18px 60px rgba(0,0,0,.25)}
-    .metric{display:flex;align-items:center;gap:18px;padding:29px 24px;border-right:1px solid rgba(255,255,255,.10)}
-    .metric:last-child{border-right:0}.metric-icon{width:38px;height:38px;border:1px solid #558ee3;border-radius:50%;display:grid;place-items:center;color:#77a7f6;font-size:1rem}
-    .metric strong{display:block;color:#4f91ef;font-size:1.35rem;font-weight:500}.metric small{display:block;margin-top:4px;color:#d2d9e1;font-size:.69rem;text-transform:uppercase}
-    section{padding:70px 0}.section-title{text-align:center;text-transform:uppercase;letter-spacing:.37em;font-size:.86rem;font-weight:500;margin-bottom:34px}.section-title span{color:#4a8cff}
-    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    .card{overflow:hidden;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:#06121d;transition:.2s ease}.card:hover{transform:translateY(-3px);border-color:rgba(80,143,241,.45)}
-    .card-media{height:190px}.card-bottom{min-height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 18px;background:rgba(3,14,23,.92);border-top:1px solid rgba(255,255,255,.08)}
-    .card-title{display:flex;align-items:center;gap:12px;font-size:.9rem}.card-icon{color:#5c96eb}.arrow{width:35px;height:35px;border:1px solid rgba(255,255,255,.26);border-radius:50%;display:grid;place-items:center}
-    .center{display:flex;justify-content:center;margin-top:26px}
-    .cta{min-height:270px;display:grid;grid-template-columns:.7fr 1.3fr;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:#071522}
-    .cta-copy{padding:38px 42px;background:linear-gradient(90deg,#09233b,#0b2437)}.cta-copy .eyebrow{margin-bottom:12px}.cta-copy h2{font-size:2rem;line-height:1.3;margin:0 0 10px;font-weight:500}.cta-copy p{color:#e4eaf0;line-height:1.6;font-size:.86rem;max-width:510px}.cta-media{background:linear-gradient(90deg,#0b2437 0%,rgba(11,36,55,.15) 20%,transparent 45%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=88') center/cover}
-    footer{padding:35px 0 28px}.footer-grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr) 1.25fr;gap:40px;color:#c0c9d3;font-size:.74rem}.footer-grid h4{color:#f5f7fa;text-transform:uppercase;font-weight:500;letter-spacing:.04em;margin:0 0 12px}.footer-grid a{display:block;margin:7px 0}.foot-tag{margin-top:15px;line-height:1.5}.socials{display:flex;gap:12px;margin-top:15px}.social{width:34px;height:34px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center}.copyright{margin-top:22px;color:#7f8b98;font-size:.67rem}
-    @media(max-width:1050px){.navlinks{display:none}.hero-grid{grid-template-columns:1fr}.hero-media{min-height:380px}.metrics{grid-template-columns:repeat(2,1fr)}.services{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.cta{grid-template-columns:1fr}.cta-media{min-height:260px}}
-    @media(max-width:650px){.wrap{width:min(calc(100% - 28px),var(--max))}.nav{min-height:72px}.nav>.btn{display:none}.logo{min-width:0}.hero-grid{min-height:auto}.hero-copy{padding:58px 0 42px}.hero-media{min-height:290px}.metrics{grid-template-columns:1fr;margin-top:16px}.metric{border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}.metric:last-child{border-bottom:0}.services{grid-template-columns:1fr}.section-title{letter-spacing:.18em;line-height:1.7}.cta-copy{padding:30px 24px}.footer-grid{grid-template-columns:1fr 1fr}.hero-copy p{font-size:1rem}h1{letter-spacing:.07em}}
-  </style>
-</head>
-<body>
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="Makai Logic home">
-      <div class="logo-mark"><div class="logo-mid"></div></div>
-      <div class="logo-text"><strong>MAKAI LOGIC</strong><small>AI CONSULTING</small></div>
-    </a>
-    <nav class="navlinks" aria-label="Primary navigation">
-      <a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#resources">Resources</a>
-    </nav>
-    <a class="btn" href="#contact">Book a Consultation <span>→</span></a>
-  </div>
-</header>
-<main id="top">
-  <div class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">AI solutions that drive real growth</div>
-        <h1>ELEVATE<span>YOUR BUSINESS</span></h1>
-        <p>We help businesses automate operations, engage customers, and unlock new levels of efficiency and profitability with intelligent AI solutions.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#contact">Book a Consultation <span>→</span></a><a class="btn" href="#services">See Our Services <span>▶</span></a></div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Makai Logic helps businesses automate operations, engage customers, and unlock new levels of efficiency and profitability with intelligent AI solutions.">
+    <title>Makai Logic | AI Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Montserrat:wght@500&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --text: #f7f9fc;
+        --max: 1420px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: Inter,Arial,sans-serif;
+        background: radial-gradient(circle at 78% 4%,rgba(30,90,160,.16),transparent 23%),linear-gradient(180deg,#020b13 0%,#03101a 46%,#020a11 100%);
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .wrap {
+        width: min(calc(100% - 56px),var(--max));
+        margin: auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 80;
+        background: rgba(2,10,17,.90);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,.07);
+      }
+
+      .nav {
+        min-height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 34px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 250px;
+      }
+
+      .logo-mark {
+        width: 46px;
+        height: 46px;
+        position: relative;
+      }
+
+      .logo-mark:before,
+      .logo-mark:after {
+        content: "";
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        height: 4px;
+        background: linear-gradient(90deg,#4e8dfa,#7bb4ff);
+        transform-origin: left center;
+      }
+
+      .logo-mark:before {
+        top: 9px;
+        transform: rotate(58deg);
+      }
+
+      .logo-mark:after {
+        bottom: 8px;
+        transform: rotate(-58deg);
+      }
+
+      .logo-mid {
+        position: absolute;
+        width: 29px;
+        height: 4px;
+        background: #5d97f9;
+        left: 10px;
+        top: 27px;
+      }
+
+      .logo-text strong {
+        display: block;
+        font-family: Montserrat,sans-serif;
+        font-weight: 500;
+        letter-spacing: .24em;
+        font-size: 1.08rem;
+      }
+
+      .logo-text small {
+        display: block;
+        letter-spacing: .31em;
+        font-size: .56rem;
+        margin-top: 4px;
+        color: #d9e2ec;
+      }
+
+      .navlinks {
+        display: flex;
+        gap: 34px;
+        font-size: .78rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+      }
+
+      .navlinks a {
+        color: #edf3fa;
+      }
+
+      .navlinks a:hover {
+        color: #77a8ff;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        border: 1px solid rgba(120,169,255,.45);
+        min-height: 50px;
+        padding: 0 24px;
+        border-radius: 8px;
+        font-size: .8rem;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        transition: .2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: #76a6ff;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg,#3479df,#4b90f5);
+        border-color: #4b90f5;
+        color: white;
+        box-shadow: 0 12px 34px rgba(52,121,223,.18);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+      }
+
+      .hero-grid {
+        min-height: 620px;
+        display: grid;
+        grid-template-columns: 1.03fr .97fr;
+        align-items: center;
+      }
+
+      .hero-copy {
+        padding: 72px 0 58px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #4c9cff;
+        font-size: .76rem;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        margin-bottom: 25px;
+      }
+
+      .eyebrow:before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: #4a8cff;
+      }
+
+      h1 {
+        font-family: Montserrat,sans-serif;
+        margin: 0;
+        font-weight: 500;
+        line-height: .92;
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        font-size: clamp(3.7rem,7.7vw,7.4rem);
+      }
+
+      h1 span {
+        display: block;
+        color: #4a82df;
+        font-size: .49em;
+        letter-spacing: .095em;
+        margin-top: 20px;
+      }
+
+      .hero-copy p {
+        max-width: 610px;
+        color: #eef3f9;
+        font-size: 1.13rem;
+        line-height: 1.8;
+        margin: 28px 0 32px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .hero-media {
+        align-self: stretch;
+        position: relative;
+        min-height: 620px;
+        background: linear-gradient(90deg,#020b13 0%,rgba(2,11,19,.17) 22%,rgba(2,11,19,0) 100%),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=88') center/cover;
+      }
+
+      .hero-media:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg,rgba(2,11,19,.86),transparent 24%),linear-gradient(180deg,rgba(2,11,19,.08),rgba(2,11,19,.18));
+      }
+
+      .metric-icon,
+      .arrow,
+      .social {
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
+
+      .metrics {
+        position: relative;
+        z-index: 4;
+        margin-top: -31px;
+        border: 1px solid rgba(96,151,231,.20);
+        background: rgba(2,13,22,.91);
+        border-radius: 12px;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        box-shadow: 0 18px 60px rgba(0,0,0,.25);
+      }
+
+      .metric {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 29px 24px;
+        border-right: 1px solid rgba(255,255,255,.10);
+      }
+
+      .metric:last-child {
+        border-right: 0;
+      }
+
+      .metric-icon {
+        width: 38px;
+        height: 38px;
+        border: 1px solid #558ee3;
+        color: #77a7f6;
+        font-size: 1rem;
+      }
+
+      .metric strong {
+        display: block;
+        color: #4f91ef;
+        font-size: 1.35rem;
+        font-weight: 500;
+      }
+
+      .metric small {
+        display: block;
+        margin-top: 4px;
+        color: #d2d9e1;
+        font-size: .69rem;
+        text-transform: uppercase;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .37em;
+        font-size: .86rem;
+        font-weight: 500;
+        margin-bottom: 34px;
+      }
+
+      .section-title span {
+        color: #4a8cff;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 20px;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.11);
+        border-radius: 14px;
+        background: #06121d;
+        transition: .2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(80,143,241,.45);
+      }
+
+      .card-media {
+        height: 190px;
+      }
+
+      .card-bottom {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px 0 18px;
+        background: rgba(3,14,23,.92);
+        border-top: 1px solid rgba(255,255,255,.08);
+      }
+
+      .card-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: .9rem;
+      }
+
+      .card-icon {
+        color: #5c96eb;
+      }
+
+      .arrow {
+        width: 35px;
+        height: 35px;
+        border: 1px solid rgba(255,255,255,.26);
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        margin-top: 26px;
+      }
+
+      .cta {
+        min-height: 270px;
+        display: grid;
+        grid-template-columns: .7fr 1.3fr;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 12px;
+        background: #071522;
+      }
+
+      .cta-copy {
+        padding: 38px 42px;
+        background: linear-gradient(90deg,#09233b,#0b2437);
+      }
+
+      .cta-copy .eyebrow {
+        margin-bottom: 12px;
+      }
+
+      .cta-copy h2 {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin: 0 0 10px;
+        font-weight: 500;
+      }
+
+      .cta-copy p {
+        color: #e4eaf0;
+        line-height: 1.6;
+        font-size: .86rem;
+        max-width: 510px;
+      }
+
+      .cta-media {
+        background: linear-gradient(90deg,#0b2437 0%,rgba(11,36,55,.15) 20%,transparent 45%),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=88') center/cover;
+      }
+
+      footer {
+        padding: 35px 0 28px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr repeat(3,1fr) 1.25fr;
+        gap: 40px;
+        color: #c0c9d3;
+        font-size: .74rem;
+      }
+
+      .footer-grid h4 {
+        color: #f5f7fa;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .04em;
+        margin: 0 0 12px;
+      }
+
+      .footer-grid a {
+        display: block;
+        margin: 7px 0;
+      }
+
+      .foot-tag {
+        margin-top: 15px;
+        line-height: 1.5;
+      }
+
+      .socials {
+        display: flex;
+        gap: 12px;
+        margin-top: 15px;
+      }
+
+      .social {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255,255,255,.22);
+      }
+
+      .copyright {
+        margin-top: 22px;
+        color: #7f8b98;
+        font-size: .67rem;
+      }
+
+      @media(max-width:1050px) {
+        .navlinks {
+          display: none;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-media {
+          min-height: 380px;
+        }
+
+        .metrics,
+        .services,
+        .footer-grid {
+          grid-template-columns: repeat(2,1fr);
+        }
+
+        .cta {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-media {
+          min-height: 260px;
+        }
+      }
+
+      @media(max-width:650px) {
+        .wrap {
+          width: min(calc(100% - 28px),var(--max));
+        }
+
+        .nav {
+          min-height: 72px;
+        }
+
+        .nav>.btn {
+          display: none;
+        }
+
+        .logo {
+          min-width: 0;
+        }
+
+        .hero-grid {
+          min-height: auto;
+        }
+
+        .hero-copy {
+          padding: 58px 0 42px;
+        }
+
+        .hero-media {
+          min-height: 290px;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+          margin-top: 16px;
+        }
+
+        .metric {
+          border-right: 0;
+          border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .metric:last-child {
+          border-bottom: 0;
+        }
+
+        .services {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          letter-spacing: .18em;
+          line-height: 1.7;
+        }
+
+        .cta-copy {
+          padding: 30px 24px;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-copy p {
+          font-size: 1rem;
+        }
+
+        h1 {
+          letter-spacing: .07em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="logo" href="#top" aria-label="Makai Logic home">
+          <div class="logo-mark">
+            <div class="logo-mid"></div>
+          </div>
+          <div class="logo-text"><strong>MAKAI LOGIC</strong><small>AI CONSULTING</small></div>
+        </a>
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#services">Services</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#resources">Resources</a>
+        </nav>
+        <a class="btn" href="#contact">Book a Consultation <span>→</span></a>
       </div>
-      <div class="hero-media" role="img" aria-label="Business intelligence dashboard"></div>
-    </div>
-  </div>
-
-  <div class="wrap metrics" aria-label="Key benefits">
-    <div class="metric"><div class="metric-icon">◎</div><div><strong>100+</strong><small>Businesses Impacted</small></div></div>
-    <div class="metric"><div class="metric-icon">◷</div><div><strong>10K+</strong><small>Hours Automated</small></div></div>
-    <div class="metric"><div class="metric-icon">◉</div><div><strong>24/7</strong><small>AI Working for You</small></div></div>
-    <div class="metric"><div class="metric-icon">◇</div><div><strong>HIGH ROI</strong><small>Measurable Results</small></div></div>
-  </div>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="section-title">AI services that <span>transform</span> how you work</div>
-      <div class="services">
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=84" alt="Business analysis"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">⌕</span>AI Business Audit</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=84" alt="AI training"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">◈</span>AI Training</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=84" alt="Content production"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">◫</span>AI Content System</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=84" alt="Website chatbot"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">▧</span>AI Website Chatbot</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=84" alt="Lead generation"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">⌁</span>AI Lead Generation</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=900&q=84" alt="AI receptionist"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">⌕</span>AI Receptionist</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=84" alt="Reputation management"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">☆</span>Reputation Management</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=84" alt="Sales and follow-up"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">✉</span>AI Sales &amp; Follow-Up</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=84" alt="CRM automation"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">⚙</span>AI CRM Automation</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=900&q=84" alt="AI admin assistant"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">♙</span>AI Admin Assistant</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=84" alt="Business intelligence"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">▥</span>Business Intelligence</div><div class="arrow">→</div></div></article>
-        <article class="card"><div class="card-media"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=84" alt="Custom AI agents"></div><div class="card-bottom"><div class="card-title"><span class="card-icon">◉</span>Custom AI Agents</div><div class="arrow">→</div></div></article>
+    </header>
+    <main id="top">
+      <div class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">AI solutions that drive real growth</div>
+            <h1>ELEVATE<span>YOUR BUSINESS</span></h1>
+            <p>We help businesses automate operations, engage customers, and unlock new levels of efficiency and profitability with intelligent AI solutions.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Book a Consultation <span>→</span></a>
+              <a class="btn" href="#services">See Our Services <span>▶</span></a>
+            </div>
+          </div>
+          <div class="hero-media" role="img" aria-label="Business intelligence dashboard"></div>
+        </div>
       </div>
-      <div class="center"><a class="btn" href="#contact">Explore All Services <span>→</span></a></div>
-    </div>
-  </section>
-
-  <section id="contact" style="padding-top:0">
-    <div class="wrap cta">
-      <div class="cta-copy"><div class="eyebrow">Partner for growth</div><h2>Ready to elevate your business to the next level?</h2><p>Let's build intelligent systems that save you time, increase revenue, and give you a competitive edge.</p><a class="btn btn-primary" href="mailto:hello@makailogic.com">Book a Consultation <span>→</span></a></div>
-      <div class="cta-media" role="img" aria-label="Mountain summit representing business growth"></div>
-    </div>
-  </section>
-</main>
-<footer>
-  <div class="wrap footer-grid">
-    <div><div class="logo"><div class="logo-mark"><div class="logo-mid"></div></div><div class="logo-text"><strong>MAKAI LOGIC</strong><small>AI CONSULTING</small></div></div><div class="foot-tag">Intelligent solutions.<br>Real results.</div></div>
-    <div id="about"><h4>Company</h4><a href="#">About Us</a><a href="#process">Our Process</a><a href="#">Case Studies</a><a href="#">Careers</a></div>
-    <div id="solutions"><h4>Solutions</h4><a href="#services">AI Strategy</a><a href="#services">Implementation</a><a href="#services">Integration</a><a href="#services">Support</a></div>
-    <div id="resources"><h4>Resources</h4><a href="#">Blog</a><a href="#">Guides</a><a href="#">FAQ</a><a href="#contact">Contact</a></div>
-    <div><h4>Stay Connected</h4><div class="socials"><div class="social">in</div><div class="social">f</div><div class="social">◎</div><div class="social">✉</div></div><div class="copyright">© 2026 Makai Logic. All rights reserved.</div></div>
-  </div>
-</footer>
-</body>
+      <div class="wrap metrics" aria-label="Key benefits">
+        <div class="metric">
+          <div class="metric-icon">◎</div>
+          <div><strong>100+</strong><small>Businesses Impacted</small></div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">◷</div>
+          <div><strong>10K+</strong><small>Hours Automated</small></div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">◉</div>
+          <div><strong>24/7</strong><small>AI Working for You</small></div>
+        </div>
+        <div class="metric">
+          <div class="metric-icon">◇</div>
+          <div><strong>HIGH ROI</strong><small>Measurable Results</small></div>
+        </div>
+      </div>
+      <section id="services">
+        <div class="wrap">
+          <div class="section-title">AI services that <span>transform</span> how you work</div>
+          <div class="services">
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Business analysis"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">⌕</span>AI Business Audit</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="AI training"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">◈</span>AI Training</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Content production"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">◫</span>AI Content System</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Website chatbot"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">▧</span>AI Website Chatbot</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Lead generation"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">⌁</span>AI Lead Generation</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="AI receptionist"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">⌕</span>AI Receptionist</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Reputation management"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">☆</span>Reputation Management</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Sales and follow-up"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">✉</span>AI Sales &amp; Follow-Up</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="CRM automation"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">⚙</span>AI CRM Automation</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="AI admin assistant"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">♙</span>AI Admin Assistant</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Business intelligence"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">▥</span>Business Intelligence</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-media"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=900&amp;q=84" alt="Custom AI agents"></div>
+              <div class="card-bottom">
+                <div class="card-title"><span class="card-icon">◉</span>Custom AI Agents</div>
+                <div class="arrow">→</div>
+              </div>
+            </article>
+          </div>
+          <div class="center">
+            <a class="btn" href="#contact">Explore All Services <span>→</span></a>
+          </div>
+        </div>
+      </section>
+      <section id="contact" style="padding-top:0">
+        <div class="wrap cta">
+          <div class="cta-copy">
+            <div class="eyebrow">Partner for growth</div>
+            <h2>Ready to elevate your business to the next level?</h2>
+            <p>Let's build intelligent systems that save you time, increase revenue, and give you a competitive edge.</p>
+            <a class="btn btn-primary" href="mailto:hello@makailogic.com">Book a Consultation <span>→</span></a>
+          </div>
+          <div class="cta-media" role="img" aria-label="Mountain summit representing business growth"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <div class="logo">
+            <div class="logo-mark">
+              <div class="logo-mid"></div>
+            </div>
+            <div class="logo-text"><strong>MAKAI LOGIC</strong><small>AI CONSULTING</small></div>
+          </div>
+          <div class="foot-tag">Intelligent solutions.<br>Real results.</div>
+        </div>
+        <div id="about">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#process">Our Process</a>
+          <a href="#">Case Studies</a>
+          <a href="#">Careers</a>
+        </div>
+        <div id="solutions">
+          <h4>Solutions</h4>
+          <a href="#services">AI Strategy</a>
+          <a href="#services">Implementation</a>
+          <a href="#services">Integration</a>
+          <a href="#services">Support</a>
+        </div>
+        <div id="resources">
+          <h4>Resources</h4>
+          <a href="#">Blog</a>
+          <a href="#">Guides</a>
+          <a href="#">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h4>Stay Connected</h4>
+          <div class="socials">
+            <div class="social">in</div>
+            <div class="social">f</div>
+            <div class="social">◎</div>
+            <div class="social">✉</div>
+          </div>
+          <div class="copyright">© 2026 Makai Logic. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
