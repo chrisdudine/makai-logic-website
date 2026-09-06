@@ -180,7 +180,8 @@
 
       .hero-copy {
         min-width: 0;
-        padding: 72px 0 58px;
+        padding: 0 0 58px;
+        align-self: start;
         position: relative;
         z-index: 2;
       }
@@ -208,8 +209,16 @@
 
 
       .hero-brand {
+        width: 110%;
         margin: 0;
         line-height: 0;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 32px;
       }
 
       .hero-brand img {
@@ -453,6 +462,10 @@
           grid-template-columns: 1fr;
         }
 
+        .hero-brand {
+          width: 100%;
+        }
+
         .hero-media {
           min-height: 380px;
         }
@@ -494,7 +507,7 @@
         }
 
         .hero-copy {
-          padding: 58px 0 42px;
+          padding: 0 0 42px;
         }
 
         .hero-media {
@@ -563,6 +576,10 @@
             <h1 class="hero-brand">
               <img src="assets/makai-logic-logo.webp" width="1774" height="887" fetchpriority="high" alt="Makai Logic — AI solutions and integration. We help businesses automate operations, engage new markets, achieve optimal efficiency and profitability. Empowering your staff, not replacing them.">
             </h1>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Book a Consultation <span>→</span></a>
+              <a class="btn" href="#services">See Our Services <span>▶</span></a>
+            </div>
           </div>
           <div class="hero-media" role="img" aria-label="Business intelligence dashboard"></div>
         </div>
