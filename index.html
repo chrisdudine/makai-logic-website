@@ -173,31 +173,6 @@
 
 
 
-      .hero-chart {
-        position: absolute;
-        top: 50%;
-        width: 13%;
-        max-width: 170px;
-        height: 150px;
-        opacity: .58;
-        transform: translateY(-50%);
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .hero-chart-left { left: 1.5%; }
-      .hero-chart-right { right: 1.5%; }
-
-      .hero-chart rect,
-      .hero-chart line { fill: none; stroke: rgba(91,157,255,.42); stroke-width: 1; }
-      .hero-chart .grid { stroke: rgba(91,157,255,.16); }
-      .hero-chart polyline { fill: none; stroke: #5b9dff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-      .hero-chart circle { fill: #73b3ff; }
-
-      @media(max-width: 1050px) {
-        .hero-chart { display: none; }
-      }
-
       .hero-brand {
         width: 75%;
         margin: 0 auto;
@@ -575,22 +550,6 @@
     </header>
     <main id="top">
       <div class="hero">
-        <div class="hero-chart hero-chart-left" aria-hidden="true">
-          <svg viewBox="0 0 180 150" role="presentation">
-            <rect x="1" y="1" width="178" height="148" rx="8"/>
-            <line class="grid" x1="16" y1="40" x2="164" y2="40"/><line class="grid" x1="16" y1="70" x2="164" y2="70"/><line class="grid" x1="16" y1="100" x2="164" y2="100"/>
-            <polyline points="16,112 42,92 63,101 88,66 110,78 136,42 164,54"/>
-            <circle cx="164" cy="54" r="3"/>
-          </svg>
-        </div>
-        <div class="hero-chart hero-chart-right" aria-hidden="true">
-          <svg viewBox="0 0 180 150" role="presentation">
-            <rect x="1" y="1" width="178" height="148" rx="8"/>
-            <line class="grid" x1="16" y1="40" x2="164" y2="40"/><line class="grid" x1="16" y1="70" x2="164" y2="70"/><line class="grid" x1="16" y1="100" x2="164" y2="100"/>
-            <line x1="28" y1="120" x2="28" y2="86"/><line x1="56" y1="120" x2="56" y2="68"/><line x1="84" y1="120" x2="84" y2="94"/><line x1="112" y1="120" x2="112" y2="52"/><line x1="140" y1="120" x2="140" y2="76"/>
-            <polyline points="16,128 46,116 76,121 106,91 136,98 164,64"/>
-          </svg>
-        </div>
         <h1 class="hero-brand">
           <img src="assets/makai-logic-logo.webp" width="1774" height="887" fetchpriority="high" alt="Makai Logic — AI solutions and integration. We help businesses automate operations, engage new markets, achieve optimal efficiency and profitability. Empowering your staff, not replacing them.">
         </h1>
