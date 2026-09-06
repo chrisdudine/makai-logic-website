@@ -187,13 +187,12 @@
       .hero-actions {
         position: absolute;
         z-index: 2;
-        left: 28px;
-        right: 28px;
-        top: 65%;
+        left: calc(2.5% + 16px);
+        right: calc(2.5% + 16px);
+        bottom: 40px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
-        flex-wrap: wrap;
       }
 
       .eyebrow {
@@ -461,10 +460,9 @@
 
       @media(max-width:650px) {
         .hero-actions {
-          top: 63%;
-          right: 14px;
-          bottom: auto;
-          left: 14px;
+          right: calc(2.5% + 8px);
+          bottom: 12px;
+          left: calc(2.5% + 8px);
           gap: 10px;
         }
 
